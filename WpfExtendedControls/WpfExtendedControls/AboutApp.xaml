@@ -4,9 +4,52 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfExtendedControls"
+        xmlns:prop="clr-namespace:WpfExtendedControls.Properties"
         mc:Ignorable="d"
-        Title="AboutApp" Height="450" Width="800">
+        Title="AboutApp" Height="550" Width="800">
+    <Window.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Height"  Value="25"></Setter>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="20"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+            <Setter Property="DataContext" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:AboutApp}}}"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"></RowDefinition>
+            <RowDefinition Height="487*"/>
+            <RowDefinition Height="27"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="123*"></ColumnDefinition>
+            <ColumnDefinition Width="277*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.RowSpan="2">
+            <Image Height="128"></Image>
+            <local:LabelMui Grid.Row="0" Grid.Column="1" ResourceKey="AboutBoxProduct"></local:LabelMui>
+            <TextBox Text="{Binding ProductName, Mode=OneWay}" IsReadOnly="True" Margin="2" Style="{StaticResource TextBoxStyle}"></TextBox>
+            <local:LabelMui Grid.Row="1" Grid.Column="1" ResourceKey="AboutBoxVersion"></local:LabelMui>
+            <TextBox Text="{Binding FileVersion, Mode=OneWay}" IsReadOnly="True" Margin="2" Style="{StaticResource TextBoxStyle}"></TextBox>
+            <local:LabelMui Grid.Row="2" Grid.Column="1" ResourceKey="AboutBoxCopyright"></local:LabelMui>
+            <TextBox Text="{Binding LegalCopyright, Mode=OneWay}" IsReadOnly="True" Margin="2" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBoxStyle}"></TextBox>
+            <local:LabelMui Grid.Row="3" Grid.Column="1" ResourceKey="AboutBoxCompany"></local:LabelMui>
+            <TextBox Text="{Binding CompanyName, Mode=OneWay}" IsReadOnly="True" Margin="2" Style="{StaticResource TextBoxStyle}"></TextBox>
+            <local:LabelMui Grid.Row="5" Grid.Column="1" ResourceKey="AboutBoxDescription"></local:LabelMui>
+            <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" TextWrapping="WrapWithOverflow"
+                 Text="{Binding Comments, Mode=OneWay}" IsReadOnly="True" Margin="2"/>
+            <local:LabelMui Grid.Column="3" Grid.Row="6" ResourceKey="AboutBoxAppLicenses"/>
+            <ListBox Margin="2" Height="162" ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:AboutApp}}, Path=Components}"></ListBox>
+        </StackPanel>
+        <local:LabelMui Grid.Row="0" Grid.Column="1" ResourceKey="AboutBoxLicenseLabel"></local:LabelMui>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                AncestorType={x:Type ListBox}}, Path=License}" 
+                IsReadOnly="true" 
+                VerticalScrollBarVisibility="Visible" 
+                Margin="2"></TextBox>
+        <Button Grid.Row="2" HorizontalAlignment="Left" Width="100" Margin="452,2,0,2" Grid.Column="1"></Button>
     </Grid>
 </Window>

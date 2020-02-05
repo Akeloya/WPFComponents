@@ -16,35 +16,28 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace WpfExtendedControls
+namespace WpfExtendedControls.Properties
 {
-    /// <summary>
-    /// Логика взаимодействия для AboutApp.xaml
-    /// </summary>
-    public partial class AboutApp : Window
+    public static class ResourcesSearcher
     {
-        public AboutApp()
+        public static string GetString(Type resourceType, string resourceName)
         {
-            InitializeComponent();
+            if (resourceType == null)
+                throw new ArgumentNullException(nameof(resourceType));
+            if (string.IsNullOrEmpty(resourceName))
+                throw new ArgumentNullException(nameof(resourceName));
+
+            PropertyInfo property = resourceType.GetProperty(resourceName, BindingFlags.Static | BindingFlags.NonPublic);
+            if (property == null)
+                return $"No found: [{resourceName}] in [{resourceType.FullName}]";
+            return property.GetValue(null, null).ToString();
         }
-        public static FileVersionInfo VersionInfo()
+        internal static string GetString(string resourceName)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            var fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-            return fvi;
+            Type type = typeof(Resources);
+            return GetString(type, resourceName);
         }
     }
 }
