@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PackageId>WPF example .net core</PackageId>
+    <Authors>Yugov V. Maxim</Authors>
+    <Company />
+    <Product>WPF Extendec Controls</Product>
+    <Copyright>(c) 2020 Yugov V. Maxim</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WpfExtendedControls\WpfExtendedControls.csproj" />
+  </ItemGroup>
+
+</Project>

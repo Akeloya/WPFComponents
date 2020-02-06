@@ -15,19 +15,11 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfExtendedControls
 {
@@ -36,15 +28,24 @@ namespace WpfExtendedControls
     /// </summary>
     public partial class AboutApp : Window
     {
-        public AboutApp()
+        public AboutApp(IEnumerable<LicenseInformation> info)
         {
             InitializeComponent();
+            VersionInfo = GetVersionInfo();
+            List<LicenseInformation> licenses = new List<LicenseInformation> { new LicenseInformation("WPF Extended Controls", Encoding.UTF8.GetString(Properties.Resources.LICENSE), false) };
+            licenses.AddRange(info);
+            Licenses = licenses;
         }
-        public static FileVersionInfo VersionInfo()
+        public FileVersionInfo GetVersionInfo()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetEntryAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             return fvi;
         }
+
+        internal List<LicenseInformation> Licenses { get { return (List<LicenseInformation>)GetValue(LicensesProperty); } set { SetValue(LicensesProperty, value); } }
+        internal static readonly DependencyProperty LicensesProperty = DependencyProperty.Register(nameof(Licenses), typeof(List<LicenseInformation>), typeof(AboutApp));
+        internal FileVersionInfo VersionInfo { get { return (FileVersionInfo)GetValue(VersionInfoProperty); } set { SetValue(VersionInfoProperty, value); } }
+        internal static readonly DependencyProperty VersionInfoProperty = DependencyProperty.Register(nameof(VersionInfo), typeof(FileVersionInfo), typeof(AboutApp));
     }
 }

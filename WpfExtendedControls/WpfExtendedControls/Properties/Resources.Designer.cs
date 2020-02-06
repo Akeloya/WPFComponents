@@ -131,5 +131,15 @@ namespace WpfExtendedControls.Properties {
                 return ResourceManager.GetString("AboutBoxVersion", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] LICENSE {
+            get {
+                object obj = ResourceManager.GetObject("LICENSE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
