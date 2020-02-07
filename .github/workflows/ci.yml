@@ -8,7 +8,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      working-directory: ./WpfExtendedControls
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -16,12 +17,12 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build with dotnet
-      run: dotnet build /WpfExtendedControls/WpfExtendedControls.csproj --configuration Release
+      run: dotnet build ${{env.working-directory}}/WpfExtendedControls.csproj --configuration Release
     - name: Select WPFComponents
       run: cd WPFComponents
     - name: Create package
-      run: dotnet pack /WPFComponents --configuration Release
+      run: dotnet pack ${{env.working-directory}} --configuration Release
     - name: Publish package
       env:
         AUTH_TOKEN: ${{ secrets.Publish }}
-      run: dotnet nuget push /bin/Release
+      run: dotnet nuget push ${{env.working-directory}}/bin/Release
