@@ -9,13 +9,13 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: ${{runner.workspace}}/WpfExtendedControls
+      working-directory: ${{github.workspace}}/WpfExtendedControls
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.2.108
+        dotnet-version: 3.1.100
     - name: Build with dotnet
       run: dotnet build ${{env.working-directory}}/WpfExtendedControls.csproj --configuration Release
     - name: Select WPFComponents
