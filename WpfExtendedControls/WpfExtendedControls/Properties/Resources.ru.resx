@@ -138,4 +138,7 @@
   <data name="AboutBoxVersion" xml:space="preserve">
     <value>Версия:</value>
   </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
 </root>

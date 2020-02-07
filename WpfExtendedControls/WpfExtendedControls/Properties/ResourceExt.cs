@@ -29,7 +29,7 @@ namespace WpfExtendedControls.Properties
             if (string.IsNullOrEmpty(resourceName))
                 throw new ArgumentNullException(nameof(resourceName));
 
-            PropertyInfo property = resourceType.GetProperty(resourceName, BindingFlags.Static | BindingFlags.NonPublic);
+            PropertyInfo property = resourceType.GetProperty(resourceName, BindingFlags.Static | BindingFlags.Public);
             if (property == null)
                 return $"No found: [{resourceName}] in [{resourceType.FullName}]";
             return property.GetValue(null, null).ToString();

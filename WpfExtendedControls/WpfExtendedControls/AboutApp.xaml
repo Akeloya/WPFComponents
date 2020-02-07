@@ -7,6 +7,12 @@
         xmlns:prop="clr-namespace:WpfExtendedControls.Properties"
         mc:Ignorable="d"
         Title="AboutApp" Height="650" Width="800">
+    <Window.InputBindings>
+        <KeyBinding Command="Close" Key="Esc"></KeyBinding>
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="Close" Executed="CloseBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
     <Window.Resources>
         <Style x:Key="LabelStyle" TargetType="Label">
             <Setter Property="Height"  Value="25"></Setter>
@@ -39,7 +45,7 @@
             <ColumnDefinition Width="123*"></ColumnDefinition>
             <ColumnDefinition Width="277*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"></Image>
+        <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}},Path=BitmapFrame}"></Image>
         <local:LabelMui Grid.Row="2" Grid.Column="0" ResourceKey="AboutBoxProduct"></local:LabelMui>
         <TextBox Grid.Column="0" Grid.Row="3" Text="{Binding ProductName, Mode=OneWay}" IsReadOnly="True" Margin="2" Style="{StaticResource TextBoxStyle}"></TextBox>
         <local:LabelMui Grid.Row="4" Grid.Column="0" ResourceKey="AboutBoxVersion"></local:LabelMui>
@@ -72,6 +78,12 @@
                 VerticalScrollBarVisibility="Visible" 
                 Margin="2">
         </TextBox>
-        <Button Grid.Row="14" HorizontalAlignment="Right" Width="100" Margin="2" Grid.Column="1" Content=""></Button>
+        <Button Grid.Row="14"
+                HorizontalAlignment="Right"
+                Width="100" 
+                Margin="2" 
+                Grid.Column="1" 
+                Content="{x:Static prop:Resources.ButtonClose}"
+                Command="Close"></Button>
     </Grid>
 </Window>
