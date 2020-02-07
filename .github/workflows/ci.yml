@@ -9,7 +9,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: ./WpfExtendedControls
+      working-directory: ${{github.workspace}}/WpfExtendedControls
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
