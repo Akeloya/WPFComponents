@@ -21,6 +21,4 @@ jobs:
     - name: Create package
       run: dotnet pack ${{env.working-directory}}/WpfExtendedControls.csproj --configuration Release
     - name: Publish package
-      env:
-        AUTH_TOKEN: ${{ secrets.Publish }}
-      run: dotnet nuget push ${{env.working-directory}}/bin/Release/
+      run: dotnet nuget push ${{env.working-directory}}/bin/Release/ -s https://nuget.pkg.github.com/Akeloya/index.json -k ${{ secrets.PublishPackage }}
