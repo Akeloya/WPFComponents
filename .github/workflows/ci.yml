@@ -18,11 +18,9 @@ jobs:
         dotnet-version: 3.1.100
     - name: Build with dotnet
       run: dotnet build ${{env.working-directory}}/WpfExtendedControls.csproj --configuration Release
-    - name: Select WPFComponents
-      run: cd WPFComponents
     - name: Create package
-      run: dotnet pack ${{env.working-directory}} --configuration Release
+      run: dotnet pack ${{env.working-directory}}/WpfExtendedControls.csproj --configuration Release
     - name: Publish package
       env:
         AUTH_TOKEN: ${{ secrets.Publish }}
-      run: dotnet nuget push ${{env.working-directory}}/bin/Release
+      run: dotnet nuget push ${{env.working-directory}}/bin/Release/
