@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build /WpfExtendedControls/WpfExtendedControls.csproj --configuration Release
     - name: Select WPFComponents
       run: cd WPFComponents
     - name: Create package
