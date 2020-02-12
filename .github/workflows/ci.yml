@@ -17,9 +17,9 @@ jobs:
       with:
         dotnet-version: 3.1.100
     - name: Build with dotnet
-      run: dotnet build ${{env.working-directory}}\WpfExtendedControls.csproj --configuration Release
+      run: dotnet build ${{env.working-directory}}\WpfExtendedControls.Core.csproj --configuration Release
     - name: Create package
-      run: dotnet pack ${{env.working-directory}}\WpfExtendedControls.csproj --configuration Release
+      run: dotnet pack ${{env.working-directory}}\WpfExtendedControls.Core.csproj --configuration Release
     - name: Install NuGet client
       uses: warrenbuckley/Setup-Nuget@v1
     - name: Add private GitHub registry to NuGet
