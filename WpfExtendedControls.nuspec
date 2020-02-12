@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>WpfExtendedControls</id>
+    <version>1.0.0</version>
+    <authors>Yugov V. Maxim</authors>
+    <owners>Yugov V. Maxim</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.md</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>https://github.com/Akeloya/WPFComponents</projectUrl>
+    <description>Extended WPF controls, include About window with ability to include all component license used in app, TimePicker, IntegetUpDown control.</description>
+    <releaseNotes>Base release with AboutBox</releaseNotes>
+    <copyright>(c) 2020 Yugov V. Maxim</copyright>
+    <tags>WPF Controls</tags>
+    <repository type="GitHub" url="https://github.com/Akeloya/WPFComponents" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1" />
+      <group targetFramework="net48"></group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+      <group targetFramework="net48">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="*.md" target="\"></file>
+    <file src="WpfExtendedControls\WpfExtendedControls\bin\Release\**" target="lib\netcoreapp3.1" exclude="**\*.pdb;**\*.deps.json"/>
+    <file src="WpfExtendedControls\WpfExtendedControls.NetFramework\bin\Release\**" target="lib\net48" exclude="**\*.pdb"/>
+  </files>
+</package>

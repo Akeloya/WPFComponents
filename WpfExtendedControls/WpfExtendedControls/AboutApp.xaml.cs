@@ -94,8 +94,8 @@ namespace WpfExtendedControls
             }
             if(imageType == typeof(byte[]))
             {
-                using MemoryStream ms = new MemoryStream((byte[])image);
-                BitmapFrame = BitmapFrame.Create(ms, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                using (MemoryStream ms = new MemoryStream((byte[])image))
+                    BitmapFrame = BitmapFrame.Create(ms, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
             }
         }
     }

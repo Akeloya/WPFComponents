@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;net48</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -14,10 +14,11 @@
     <Company />
     <PackageProjectUrl>https://github.com/Akeloya/WPFComponents</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageReleaseNotes>Base release with AboutBox</PackageReleaseNotes>
+    <PackageReleaseNotes>Add support net 4.8 with netcore 3.1</PackageReleaseNotes>
     <PackageId>WpfExtendedControls.Core</PackageId>
     <AssemblyName>WpfExtendedControls</AssemblyName>
     <RootNamespace>WpfExtendedControls</RootNamespace>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
