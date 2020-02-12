@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExtendedControls", "WpfExtendedControls\WpfExtendedControls.csproj", "{56DDE2E5-01AF-42CF-81C6-CE09303AADF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExtendedControls.Core", "WpfExtendedControls\WpfExtendedControls.Core.csproj", "{56DDE2E5-01AF-42CF-81C6-CE09303AADF0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.WpfExtendedControls", "Test.WpfExtendedControls\Test.WpfExtendedControls.csproj", "{5B9A891B-2B71-4086-B0AB-B6B1F6CAE80D}"
 EndProject
@@ -14,7 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example", "Wpf.Example\Wpf.Example.csproj", "{70B71F66-517E-4811-A778-D5EEA450E362}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Example", "Wpf.Example\Wpf.Example.csproj", "{70B71F66-517E-4811-A778-D5EEA450E362}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExtendedControls.NetFramework", "WpfExtendedControls.NetFramework\WpfExtendedControls.NetFramework.csproj", "{50F2DB52-4634-4F37-ADA5-F5525F853065}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{296BAA00-BDFB-4CE7-8490-F7144051B30E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,9 +38,16 @@ Global
 		{70B71F66-517E-4811-A778-D5EEA450E362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70B71F66-517E-4811-A778-D5EEA450E362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70B71F66-517E-4811-A778-D5EEA450E362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F2DB52-4634-4F37-ADA5-F5525F853065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F2DB52-4634-4F37-ADA5-F5525F853065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F2DB52-4634-4F37-ADA5-F5525F853065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F2DB52-4634-4F37-ADA5-F5525F853065}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{296BAA00-BDFB-4CE7-8490-F7144051B30E} = {4C6F6973-0DE5-49D0-9B92-77DB52A9A2D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCDC1F2B-100B-48CA-AF05-53A4D0ED312B}

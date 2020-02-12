@@ -15,6 +15,9 @@
     <PackageProjectUrl>https://github.com/Akeloya/WPFComponents</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReleaseNotes>Base release with AboutBox</PackageReleaseNotes>
+    <PackageId>WpfExtendedControls.Core</PackageId>
+    <AssemblyName>WpfExtendedControls</AssemblyName>
+    <RootNamespace>WpfExtendedControls</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

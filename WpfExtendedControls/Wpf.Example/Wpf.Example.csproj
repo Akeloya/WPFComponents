@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WpfExtendedControls\WpfExtendedControls.csproj" />
+    <ProjectReference Include="..\WpfExtendedControls\WpfExtendedControls.Core.csproj" />
   </ItemGroup>
 
 </Project>
