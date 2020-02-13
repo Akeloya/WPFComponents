@@ -27,4 +27,6 @@ jobs:
     - name: Push generated package to GitHub registry
       run: nuget push ${{env.working-directory}}\bin\Release\*.nupkg -Source "NuGet" -SkipDuplicate
     - name: Publish package to nuget.org
-      run: nuget push ${{env.working-directory}}\bin\Release\*.nupkg -Source nuget.org -Key ${{secrets.NugetApiKey}} -SkipDuplicate
+      run: |
+        nuget SetApiKey ${{secrets.NugetApiKey}}
+        nuget push ${{env.working-directory}}\bin\Release\*.nupkg -Source nuget.org -SkipDuplicate
