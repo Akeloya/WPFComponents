@@ -26,5 +26,5 @@ jobs:
       run: nuget sources add -name "NuGet" -Source https://nuget.pkg.github.com/Akeloya/index.json -Username akeloya -Password ${{ secrets.PublishPackage }}
     - name: Publish package to nuget.org
       run: dotnet nuget push ${{env.working-directory}}\bin\Release\*.nupkg --source nuget.org -k ${{secrets.NugetApiKey}} --skip-duplicate
-    - name: Publish nuget
-      run: curl -vX PUT -u "akeloya:${{ secrets.PublishPackage }}" -F package=${{env.working-directory}}\bin\Release\*.nupkg https://nuget.pkg.github.com/Akeloya/
+    - name: Push generated package to GitHub registry
+      run: nuget push ${{env.working-directory}}\bin\Release\*.nupkg -Source "NuGet" -SkipDuplicate
