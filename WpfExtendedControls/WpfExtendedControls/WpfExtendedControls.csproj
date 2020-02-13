@@ -15,10 +15,12 @@
     <PackageProjectUrl>https://github.com/Akeloya/WPFComponents</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReleaseNotes>Add support net 4.8 with netcore 3.1</PackageReleaseNotes>
-    <PackageId>WpfExtendedControls.Core</PackageId>
+    <PackageId>WpfExtendedControls</PackageId>
     <AssemblyName>WpfExtendedControls</AssemblyName>
     <RootNamespace>WpfExtendedControls</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
