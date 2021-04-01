@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net48</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows;netcoreapp3.1;net48;net472</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -14,13 +14,13 @@
     <Company />
     <PackageProjectUrl>https://github.com/Akeloya/WPFComponents</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageReleaseNotes>Add support net 4.8 with netcore 3.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Add support net 4.7.2, .net5-windows</PackageReleaseNotes>
     <PackageId>WpfExtendedControls</PackageId>
     <AssemblyName>WpfExtendedControls</AssemblyName>
     <RootNamespace>WpfExtendedControls</RootNamespace>
-    <Version>1.0.2</Version>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
