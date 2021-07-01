@@ -11,7 +11,9 @@ namespace WpfExtendedControls
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(LabelMui), new FrameworkPropertyMetadata(typeof(LabelMui)));
         }
-
+        /// <summary>
+        /// Resource type with multilangual strings
+        /// </summary>
         public Type Resource { get { return (Type)GetValue(ResourceProperty); } set { SetValue(ResourceProperty, value); } }
         public static readonly DependencyProperty ResourceProperty = DependencyProperty.Register(
             nameof(Resource),
@@ -27,6 +29,9 @@ namespace WpfExtendedControls
                         return;
                     inst.Label = ResourcesSearcher.GetString((Type)args.NewValue, inst.ResourceKey);
                 })));
+        /// <summary>
+        /// Resource key with string value for displaying
+        /// </summary>
         public string ResourceKey { get; set; }
         public static readonly DependencyProperty ResourceKeyProperty = DependencyProperty.Register(
             nameof(ResourceKey), 
