@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Wpf.Example"
+        xmlns:local="clr-namespace:Wpf.Example" xmlns:wpfextendedcontrols="clr-namespace:WpfExtendedControls;assembly=WpfExtendedControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.CommandBindings>
@@ -17,5 +17,9 @@
         <Menu Grid.Row="0">
             <MenuItem Header="AboutBox" Command="Help"></MenuItem>
         </Menu>
+        <StackPanel Grid.Row="1">
+            <wpfextendedcontrols:TabManager>
+            </wpfextendedcontrols:TabManager>
+        </StackPanel>
     </Grid>
 </Window>
