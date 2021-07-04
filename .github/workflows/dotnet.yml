@@ -10,7 +10,8 @@ jobs:
   build:
 
     runs-on: windows-latest
-
+    env:
+      working-directory: ${{github.workspace}}\WpfExtendedControls\WpfExtendedControls
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -18,8 +19,22 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ${{env.working-directory}}\WpfExtendedControls.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ${{env.working-directory}}\WpfExtendedControls.csproj --configuration Release --no-restore
+    - name: Create package
+      run: dotnet pack ${{env.working-directory}}\WpfExtendedControls.csproj --configuration Release
+    - name: Install NuGet client
+      uses: warrenbuckley/Setup-Nuget@v1
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+    - name: Add private GitHub registry to NuGet
+      run: nuget sources add -name "NuGet" -Source https://nuget.pkg.github.com/Akeloya/index.json -Username akeloya -Password ${{ secrets.PublishPackage }}    
+    - name: Push generated package to GitHub registry
+      run: nuget push ${{env.working-directory}}\bin\Release\*.nupkg -Source "NuGet" -SkipDuplicate
+    - name: Publish package to nuget.org
+      run: |
+        nuget SetApiKey ${{secrets.NugetApiKey}}
+        nuget push ${{env.working-directory}}\bin\Release\*.nupkg -Source nuget.org -SkipDuplicate -NoSymbols
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
