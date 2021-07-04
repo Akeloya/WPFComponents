@@ -14,13 +14,13 @@
     <Company />
     <PackageProjectUrl>https://github.com/Akeloya/WPFComponents</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageReleaseNotes>Add support net 4.7.2, .net5-windows</PackageReleaseNotes>
+    <PackageReleaseNotes>Added TimePicker</PackageReleaseNotes>
     <PackageId>WpfExtendedControls</PackageId>
     <AssemblyName>WpfExtendedControls</AssemblyName>
     <RootNamespace>WpfExtendedControls</RootNamespace>
-    <Version>1.0.3</Version>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
